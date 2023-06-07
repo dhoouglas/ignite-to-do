@@ -31,7 +31,12 @@ function App() {
         title: taskTitle,
         isComplete: false,  
       }
-    ])
+    ]);
+  }
+
+  function deleteTaskById(taskId: string) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTasks);
   }
 
   return (
@@ -40,6 +45,7 @@ function App() {
 
       <Tasks 
         tasks={tasks}
+        onDelete={deleteTaskById}
       />
     </>
   )
